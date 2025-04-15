@@ -1,5 +1,4 @@
 ﻿using System.Data.Common;
-using TodoLists.Application.Common.Interfaces;
 using TodoLists.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -28,9 +27,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         builder.ConfigureTestServices(services =>
         {
-            services
-                .RemoveAll<IUser>()
-                .AddTransient(provider => Mock.Of<IUser>(s => s.Id == GetUserId()));
             services
                 .RemoveAll<DbContextOptions<ApplicationDbContext>>()
                 .AddDbContext<ApplicationDbContext>((sp, options) =>

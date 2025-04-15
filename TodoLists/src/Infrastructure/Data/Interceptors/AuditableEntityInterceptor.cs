@@ -1,5 +1,4 @@
-﻿using TodoLists.Application.Common.Interfaces;
-using TodoLists.Domain.Common;
+﻿using TodoLists.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -8,14 +7,10 @@ namespace TodoLists.Infrastructure.Data.Interceptors;
 
 public class AuditableEntityInterceptor : SaveChangesInterceptor
 {
-    private readonly IUser _user;
     private readonly TimeProvider _dateTime;
 
-    public AuditableEntityInterceptor(
-        IUser user,
-        TimeProvider dateTime)
+    public AuditableEntityInterceptor(TimeProvider dateTime)
     {
-        _user = user;
         _dateTime = dateTime;
     }
 
@@ -44,10 +39,10 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
                 var utcNow = _dateTime.GetUtcNow();
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedBy = _user.Id;
+                    entry.Entity.CreatedBy = string.Empty;
                     entry.Entity.Created = utcNow;
                 } 
-                entry.Entity.LastModifiedBy = _user.Id;
+                entry.Entity.LastModifiedBy = string.Empty;
                 entry.Entity.LastModified = utcNow;
             }
         }
