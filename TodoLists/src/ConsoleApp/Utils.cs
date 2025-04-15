@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using TodoLists.Application.Common.Models;
 using TodoLists.Application.UseCases.AddItem;
 using TodoLists.Application.UseCases.GetItems;
 using TodoLists.Application.UseCases.RegisterProgression;
