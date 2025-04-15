@@ -13,9 +13,9 @@ public class TodoItems : EndpointGroupBase
     public override void Map(WebApplication app)
     {
         app.MapGroup(this)
-            .RequireAuthorization()
             .MapGet(GetItemsWithPagination)
             .MapPost(AddItem)
+            .MapPost(RegisterProgression, "{id}/RegisterProgression")
             .MapPut(UpdateItem, "{id}")
             .MapDelete(DeleteItem, "{id}");
     }

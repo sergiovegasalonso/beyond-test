@@ -45,12 +45,7 @@
               }
             }
           }
-        },
-        "security": [
-          {
-            "JWT": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -81,12 +76,47 @@
               }
             }
           }
-        },
-        "security": [
+        }
+      }
+    },
+    "/api/TodoItems/RegisterProgression": {
+      "post": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "RegisterProgression",
+        "parameters": [
           {
-            "JWT": []
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
           }
-        ]
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterProgressionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "400": {
+            "description": ""
+          }
+        }
       }
     },
     "/api/TodoItems/{id}": {
@@ -126,12 +156,7 @@
           "400": {
             "description": ""
           }
-        },
-        "security": [
-          {
-            "JWT": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -154,12 +179,7 @@
           "204": {
             "description": ""
           }
-        },
-        "security": [
-          {
-            "JWT": []
-          }
-        ]
+        }
       }
     }
   },
@@ -310,6 +330,24 @@
           2,
           3
         ]
+      },
+      "RegisterProgressionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "todoItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "percent": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
       },
       "UpdateItemCommand": {
         "type": "object",
