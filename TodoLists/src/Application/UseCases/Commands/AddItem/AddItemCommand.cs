@@ -11,8 +11,4 @@ public record AddItemCommand : IRequest<int>
     public string? Description { get; set; }
 
     public string? Category { get; set; }
-
-    public PriorityLevel Priority { get; set; }
-
-    public DateTime? Reminder { get; set; }
 }

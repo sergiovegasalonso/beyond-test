@@ -21,7 +21,7 @@ public class TodoItems : EndpointGroupBase
             .MapPost(RegisterProgression, "{id}/RegisterProgression");
     }
 
-    public async Task<Ok<PaginatedList<TodoItemDto>>> GetItems(ISender sender, [AsParameters] GetItemsWithPaginationQuery query)
+    public async Task<Ok<List<TodoItemDto>>> GetItems(ISender sender, [AsParameters] GetItemsQuery query)
     {
         var result = await sender.Send(query);
 

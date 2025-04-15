@@ -43,14 +43,14 @@ namespace TodoLists.Infrastructure.Data.Migrations
                 b.Property<bool>("IsCompleted")
                     .HasColumnType("bit");
 
-                b.Property<DateTimeOffset>("Created")
-                    .HasColumnType("datetimeoffset");
+                b.Property<DateTime>("Created")
+                    .HasColumnType("datetime2");
 
                 b.Property<string>("CreatedBy")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<DateTimeOffset>("LastModified")
-                    .HasColumnType("datetimeoffset");
+                b.Property<DateTime>("LastModified")
+                    .HasColumnType("datetime2");
 
                 b.Property<string>("LastModifiedBy")
                     .HasColumnType("nvarchar(max)");
@@ -71,11 +71,11 @@ namespace TodoLists.Infrastructure.Data.Migrations
                 b.Property<int>("TodoItemId")
                    .HasColumnType("int");
 
-                b.Property<DateTimeOffset>("Date")
-                    .HasColumnType("datetimeoffset");
+                b.Property<DateTime>("Date")
+                    .HasColumnType("datetime2");
 
                 b.Property<decimal>("Percent")
-                   .HasColumnType("decimal");
+                   .HasColumnType("decimal(3,2)");
 
                 b.HasKey("Id");
 
