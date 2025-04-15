@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using TodoLists.Application.Common.Interfaces;
 using TodoLists.Domain.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace TodoLists.Infrastructure.Data;

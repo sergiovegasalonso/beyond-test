@@ -1,6 +1,5 @@
 ﻿using TodoLists.Domain.Constants;
 using TodoLists.Infrastructure.Data;
-using TodoLists.Infrastructure.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -63,12 +62,6 @@ public partial class Testing
     {
         using var scope = _scopeFactory.CreateScope();
 
-        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-        var user = new ApplicationUser { UserName = userName, Email = userName };
-
-        var result = await userManager.CreateAsync(user, password);
-
         if (roles.Any())
         {
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -77,18 +70,9 @@ public partial class Testing
             {
                 await roleManager.CreateAsync(new IdentityRole(role));
             }
-
-            await userManager.AddToRolesAsync(user, roles);
         }
 
-        if (result.Succeeded)
-        {
-            _userId = user.Id;
-
-            return _userId;
-        }
-
-        var errors = string.Join(Environment.NewLine, result.ToApplicationResult().Errors);
+        var errors = string.Join(Environment.NewLine, string.Empty);
 
         throw new Exception($"Unable to create {userName}.{Environment.NewLine}{errors}");
     }
