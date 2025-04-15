@@ -1,11 +1,10 @@
-﻿using MediatR;
+﻿using ConsoleApp;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using TodoLists.Application.UseCases.AddItem;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.AddApplicationServices();
 builder.AddInfrastructureServices();
 
@@ -15,14 +14,44 @@ using (var scope = app.Services.CreateScope())
 {
     var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
 
-    var command = new AddItemCommand
+    string? userInput;
+    do
     {
-        Title = "Sample Itemmmmmmmmmmmmmmgfdf",
-        Description = "This is a sample item."
-    };
+        userInput = Utils.GetOption();
 
-    var x = await mediator.Send(command);
-    Console.WriteLine(x);
+        switch (userInput)
+        {
+            case "1":
+                await Utils.AddItem(mediator);
+                break;
+
+            case "2":
+                await Utils.UpdateItem(mediator);
+                break;
+
+            case "3":
+                await Utils.RemoveItem(mediator);
+                break;
+
+            case "4":
+                await Utils.RegisterProgression(mediator);
+                break;
+
+            case "5":
+                await Utils.PrintItems(mediator);
+                break;
+
+            case "0":
+                Console.WriteLine("Exiting...");
+                break;
+
+            default:
+                Console.WriteLine("Invalid option. Please try again.");
+                Console.Clear();
+                break;
+        }
+    } while (userInput != "0");
 }
 
 app.Run();
+
