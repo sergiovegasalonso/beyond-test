@@ -13,27 +13,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TodoItems", "TodoItems", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TodoLists", "TodoLists", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3F6F5AF-5F41-40CD-99C5-14498FD3AEA5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E1940C75-B85E-4E9F-BCB3-8E79CE4C120A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "TodoItems\src\Application\Application.csproj", "{CF027A43-A376-4A13-B07C-A287262C3C7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "TodoLists\src\Application\Application.csproj", "{CF027A43-A376-4A13-B07C-A287262C3C7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "TodoItems\src\Domain\Domain.csproj", "{C087A329-6D91-507F-237C-562EA3A5DCDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "TodoLists\src\Domain\Domain.csproj", "{C087A329-6D91-507F-237C-562EA3A5DCDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "TodoItems\src\Infrastructure\Infrastructure.csproj", "{23B92FBE-F54F-40FD-3FF1-0AD916AEA91B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "TodoLists\src\Infrastructure\Infrastructure.csproj", "{23B92FBE-F54F-40FD-3FF1-0AD916AEA91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "TodoItems\src\Web\Web.csproj", "{7DE008DE-8295-5BC0-F3AD-50B268C934B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "TodoLists\src\Web\Web.csproj", "{7DE008DE-8295-5BC0-F3AD-50B268C934B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.FunctionalTests", "TodoItems\tests\Application.FunctionalTests\Application.FunctionalTests.csproj", "{AAC8229B-64E8-EB84-0C25-9426F1B4D8C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.FunctionalTests", "TodoLists\tests\Application.FunctionalTests\Application.FunctionalTests.csproj", "{AAC8229B-64E8-EB84-0C25-9426F1B4D8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "TodoItems\tests\Application.UnitTests\Application.UnitTests.csproj", "{ABAD3158-79AD-5F36-0A40-142C53407C77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "TodoLists\tests\Application.UnitTests\Application.UnitTests.csproj", "{ABAD3158-79AD-5F36-0A40-142C53407C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.UnitTests", "TodoItems\tests\Domain.UnitTests\Domain.UnitTests.csproj", "{61ED73CC-C186-296C-BF32-B0472D5241B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.UnitTests", "TodoLists\tests\Domain.UnitTests\Domain.UnitTests.csproj", "{61ED73CC-C186-296C-BF32-B0472D5241B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.IntegrationTests", "TodoItems\tests\Infrastructure.IntegrationTests\Infrastructure.IntegrationTests.csproj", "{C0BCBDF6-44DD-C158-30D9-7D24E8261D83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.IntegrationTests", "TodoLists\tests\Infrastructure.IntegrationTests\Infrastructure.IntegrationTests.csproj", "{C0BCBDF6-44DD-C158-30D9-7D24E8261D83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
