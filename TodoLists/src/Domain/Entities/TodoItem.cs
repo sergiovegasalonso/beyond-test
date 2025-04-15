@@ -2,30 +2,18 @@
 
 public class TodoItem : BaseAuditableEntity
 {
-    public int ListId { get; set; }
-
     public string? Title { get; set; }
 
-    public string? Note { get; set; }
+    public string? Description { get; set; }
 
-    public PriorityLevel Priority { get; set; }
+    public string? Category { get; set; }
 
-    public DateTime? Reminder { get; set; }
+    public List<Progression>? Progressions { get; set; }
 
-    private bool _done;
-    public bool Done
+    private bool _isCompleted;
+    public bool IsCompleted
     {
-        get => _done;
-        set
-        {
-            if (value && !_done)
-            {
-                AddDomainEvent(new TodoItemCompletedEvent(this));
-            }
-
-            _done = value;
-        }
+        get => _isCompleted;
+        private set => _isCompleted = value;
     }
-
-    public TodoList List { get; set; } = null!;
 }

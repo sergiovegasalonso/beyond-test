@@ -30,14 +30,24 @@ namespace TodoLists.Infrastructure.Data.Migrations
 
                 SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                b.Property<string>("Title")
+                   .HasMaxLength(200)
+                   .HasColumnType("nvarchar(200)");
+
+                b.Property<string>("Description")
+                   .HasColumnType("nvarchar(max)");
+
+                b.Property<string>("Category")
+                   .HasColumnType("nvarchar(max)");
+
+                b.Property<bool>("IsCompleted")
+                    .HasColumnType("bit");
+
                 b.Property<DateTimeOffset>("Created")
                     .HasColumnType("datetimeoffset");
 
                 b.Property<string>("CreatedBy")
                     .HasColumnType("nvarchar(max)");
-
-                b.Property<bool>("Done")
-                    .HasColumnType("bit");
 
                 b.Property<DateTimeOffset>("LastModified")
                     .HasColumnType("datetimeoffset");
@@ -45,26 +55,33 @@ namespace TodoLists.Infrastructure.Data.Migrations
                 b.Property<string>("LastModifiedBy")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("ListId")
-                    .HasColumnType("int");
-
-                b.Property<string>("Note")
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<int>("Priority")
-                    .HasColumnType("int");
-
-                b.Property<DateTime?>("Reminder")
-                    .HasColumnType("datetime2");
-
-                b.Property<string>("Title")
-                    .IsRequired()
-                    .HasMaxLength(200)
-                    .HasColumnType("nvarchar(200)");
-
                 b.HasKey("Id");
 
                 b.ToTable("TodoItems");
+            });
+
+            modelBuilder.Entity("BeyondTest.Domain.Entities.Progression", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                b.Property<int>("TodoItemId")
+                   .HasColumnType("int");
+
+                b.Property<DateTimeOffset>("Date")
+                    .HasColumnType("datetimeoffset");
+
+                b.Property<decimal>("Percent")
+                   .HasColumnType("decimal");
+
+                b.HasKey("Id");
+
+                b.HasIndex("TodoItemId");
+
+                b.ToTable("Progressions");
             });
 #pragma warning restore 612, 618
         }

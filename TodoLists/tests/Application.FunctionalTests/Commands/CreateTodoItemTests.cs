@@ -38,11 +38,10 @@ public class CreateTodoItemTests : BaseTestFixture
         var item = await FindAsync<TodoItem>(itemId);
 
         item.Should().NotBeNull();
-        item!.ListId.Should().Be(command.Id);
-        item.Title.Should().Be(command.Title);
-        item.CreatedBy.Should().Be(userId);
-        item.Created.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
-        item.LastModifiedBy.Should().Be(userId);
-        item.LastModified.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
+        item?.Title.Should().Be(command.Title);
+        item?.CreatedBy.Should().Be(userId);
+        item?.Created.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
+        item?.LastModifiedBy.Should().Be(userId);
+        item?.LastModified.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
     }
 }

@@ -16,7 +16,6 @@ public static class DependencyInjection
         Guard.Against.Null(connectionString, message: "Connection string 'BeyondTestDb' not found.");
 
         builder.Services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
-        builder.Services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
 
         builder.Services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {

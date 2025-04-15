@@ -13,11 +13,19 @@ public class TodoItems : EndpointGroupBase
     public override void Map(WebApplication app)
     {
         app.MapGroup(this)
-            .MapGet(GetItemsWithPagination)
+            .MapGet(GetItems)
+            .MapGet(GetItemsWithPagination, "WithPagination")
             .MapPost(AddItem)
-            .MapPost(RegisterProgression, "{id}/RegisterProgression")
             .MapPut(UpdateItem, "{id}")
-            .MapDelete(DeleteItem, "{id}");
+            .MapDelete(DeleteItem, "{id}")
+            .MapPost(RegisterProgression, "{id}/RegisterProgression");
+    }
+
+    public async Task<Ok<PaginatedList<TodoItemDto>>> GetItems(ISender sender, [AsParameters] GetItemsWithPaginationQuery query)
+    {
+        var result = await sender.Send(query);
+
+        return TypedResults.Ok(result);
     }
 
     public async Task<Ok<PaginatedList<TodoItemDto>>> GetItemsWithPagination(ISender sender, [AsParameters] GetItemsWithPaginationQuery query)

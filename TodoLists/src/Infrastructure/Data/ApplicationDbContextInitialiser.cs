@@ -61,7 +61,13 @@ public class ApplicationDbContextInitialiser
     {
         if (!_context.TodoItems.Any())
         {
-            _context.TodoItems.Add(new TodoItem { Title = "Make a todo list 📃" });
+            _context.TodoItems.Add(new TodoItem
+            {
+                Title = "Make a todo list 📃",
+                Description = "Description for make a todo list 📃",
+                Category = "My tasks"
+
+            });
             _context.TodoItems.Add(new TodoItem { Title = "Check off the first item ✅" });
             _context.TodoItems.Add(new TodoItem { Title = "Realise you've already done two things on the list! 🤯" });
             _context.TodoItems.Add(new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" });
