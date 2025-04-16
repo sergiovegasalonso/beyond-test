@@ -24,12 +24,11 @@ Ambas se se nutren de los casos de uso de la capa de aplicación.
 4. Desarrollada una solución de .NET que cumple con buenas prácticas.
 5. Gestión central de dependencias y versionado de .NET
 6. Github action
-7. Testing (aunque no me ha dado tiempo a terminarlo) dedicado a cada capa
-8. Sistema de migraciones, inyección de dependencias y patrón mediator.
-9. Swagger 
+7. Sistema de migraciones, inyección de dependencias y patrón mediator.
+8. Swagger 
 
 ## Tareas que no me ha dado tiempo
 
 1. Hacer el cliente web
 2. Limpieza de algunas partes del código, por ejemplo, los eventos de dominio
-3. 
+3. Testing (aunque he creado todas las soluciones no me ha dado tiempo a terminarlo)
