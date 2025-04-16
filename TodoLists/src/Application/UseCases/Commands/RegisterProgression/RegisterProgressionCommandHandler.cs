@@ -19,11 +19,16 @@ public class RegisterProgressionCommandHandler : IRequestHandler<RegisterProgres
 
         Guard.Against.NotFound(request.TodoItemId, todoItem);
 
+        var lastProgression = await _context.Progressions
+            .Where(x => x.TodoItemId == todoItem.Id)
+            .OrderByDescending(x => x.Date)
+            .FirstOrDefaultAsync(cancellationToken);
+
         await _context.Progressions.AddAsync(new Progression
         {
             TodoItemId = todoItem.Id,
-            Date = DateTime.UtcNow,
-            Percent = request.Percent,
+            Date = request.Date,
+            Percent = lastProgression != null ? lastProgression.Percent + request.Percent : request.Percent,
         }, cancellationToken);
 
         await _context.SaveChangesAsync(cancellationToken);

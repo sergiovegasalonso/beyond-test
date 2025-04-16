@@ -147,6 +147,7 @@ public static class Utils
             await mediator.Send(new RegisterProgressionCommand
             {
                 TodoItemId = int.Parse(todoItemId),
+                Date = DateTime.UtcNow,
                 Percent = percent
             });
 
