@@ -59,41 +59,45 @@ public class ApplicationDbContextInitialiser
 
     public async Task TrySeedAsync()
     {
-        if (!_context.TodoItems.Any())
+        if (!_context.TodoItems.Any() || !_context.Progressions.Any())
         {
             var firstTodoItem = _context.TodoItems.Add(new TodoItem
             {
-                Title = "Make a todo list 📃",
-                Description = "Description for make a todo list 📃",
+                Title = "First todo item :)",
+                Description = "Description",
                 Category = "My tasks"
             });
 
             var secondTodoItem = _context.TodoItems.Add(new TodoItem
             {
-                Title = "Check off the first item ✅",
-                Description = "Description for check off the first item ✅",
+                Title = "Second todo item :)",
+                Description = "Description",
                 Category = "My tasks"
             });
 
             var thirdTodoItem = _context.TodoItems.Add(new TodoItem
             {
-                Title = "Realise you've already done two things on the list! 🤯",
-                Description = "Description for realise you've already done two things on the list! 🤯",
+                Title = "Third todo item :)",
+                Description = "Description",
                 Category = "My dreams"
             });
 
             var forthTodoItem = _context.TodoItems.Add(new TodoItem
             {
-                Title = "Reward yourself with a nice, long nap 🏆",
-                Description = "Description for reward yourself with a nice, long nap 🏆",
+                Title = "Fourth todo item :)",
+                Description = "Description",
                 Category = "My dreams"
             });
 
             await _context.SaveChangesAsync();
 
             _context.Progressions.Add(new Progression { TodoItemId = firstTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 0 });
+            _context.Progressions.Add(new Progression { TodoItemId = firstTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 1 });
+            _context.Progressions.Add(new Progression { TodoItemId = firstTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 75 });
+            _context.Progressions.Add(new Progression { TodoItemId = firstTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 100 });
             _context.Progressions.Add(new Progression { TodoItemId = secondTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 0 });
             _context.Progressions.Add(new Progression { TodoItemId = thirdTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 0 });
+            _context.Progressions.Add(new Progression { TodoItemId = thirdTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 84 });
             _context.Progressions.Add(new Progression { TodoItemId = forthTodoItem.Entity.Id, Date = DateTime.UtcNow, Percent = 0 });
 
             await _context.SaveChangesAsync();

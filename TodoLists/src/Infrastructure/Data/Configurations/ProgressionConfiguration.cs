@@ -15,7 +15,7 @@ public class ProgressionConfiguration : IEntityTypeConfiguration<Progression>
             .IsRequired();
 
         builder.Property(t => t.Percent)
-            .HasPrecision(3, 2)
+            .HasPrecision(5, 2)
             .IsRequired();
     }
 }

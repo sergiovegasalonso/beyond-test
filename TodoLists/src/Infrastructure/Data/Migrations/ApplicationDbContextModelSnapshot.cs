@@ -75,7 +75,7 @@ namespace TodoLists.Infrastructure.Data.Migrations
                     .HasColumnType("datetime2");
 
                 b.Property<decimal>("Percent")
-                   .HasColumnType("decimal(3,2)");
+                   .HasColumnType("decimal(5,2)");
 
                 b.HasKey("Id");
 

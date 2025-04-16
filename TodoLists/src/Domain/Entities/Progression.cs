@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace TodoLists.Domain.Entities;
+﻿namespace TodoLists.Domain.Entities;
 
 public class Progression : BaseEntity
 {

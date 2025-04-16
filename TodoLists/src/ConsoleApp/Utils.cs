@@ -35,11 +35,11 @@ public static class Utils
             Console.Write($"Id: ");
             id = Console.ReadLine();
         } while (!int.TryParse(id, out _));
-        Console.Write($"\nTitle: ");
+        Console.Write($"Title: ");
         var title = Console.ReadLine();
-        Console.Write($"\nDescription: ");
+        Console.Write($"Description: ");
         var description = Console.ReadLine();
-        Console.Write($"\nCategory: ");
+        Console.Write($"Category: ");
         var category = Console.ReadLine();
 
         try
@@ -53,7 +53,7 @@ public static class Utils
             });
             Console.WriteLine($"Item added: {result}");
         }
-        catch ( Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e.Message);
         }
@@ -72,7 +72,7 @@ public static class Utils
             Console.Write($"Id: ");
             id = Console.ReadLine();
         } while (!int.TryParse(id, out _));
-        Console.Write($"\nDescription: ");
+        Console.Write($"Description: ");
         var description = Console.ReadLine();
 
         try
@@ -138,7 +138,7 @@ public static class Utils
         string? percentInput;
         do
         {
-            Console.Write($"\nPercent (e.g., 50.5): ");
+            Console.Write($"Percent (e.g., 50.5): ");
             percentInput = Console.ReadLine();
         } while (!decimal.TryParse(percentInput, out percent));
 
@@ -169,8 +169,7 @@ public static class Utils
         try
         {
             var result = await mediator.Send(new GetItemsQuery());
-
-            Console.WriteLine(result);
+            PrintItemsWithTableFormat(result);
         }
         catch (Exception e)
         {
@@ -179,5 +178,26 @@ public static class Utils
 
         Console.Write($"Press enter to continue...");
         Console.ReadLine();
+    }
+
+    private static void PrintItemsWithTableFormat(IEnumerable<TodoItemDto>? list)
+    {
+        if (list == null) return;
+
+        foreach (var item in list)
+        {
+            Console.WriteLine($"{item.Id}) {item.Title} - {item.Description} ({item.Category}) Completed:{item.IsCompleted}.");
+            foreach (var progression in item.Progressions)
+            {
+                int barLength = 100;
+                var filledLength = (int)(progression.Percent / 100 * barLength);
+                var progressBar = new string('O', filledLength).PadRight(barLength, ' ');
+                var percentFormatted = $"{progression.Percent.ToString("F0")}%";
+
+                var progressionString = $"{progression.Date} - {percentFormatted, -5}" + $"| {progressBar, -100} |";
+
+                Console.WriteLine(progressionString);
+            }
+        }
     }
 }
