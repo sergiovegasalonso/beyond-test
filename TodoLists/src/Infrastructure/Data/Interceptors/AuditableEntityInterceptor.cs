@@ -36,7 +36,7 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
         {
             if (entry.State is EntityState.Added or EntityState.Modified || entry.HasChangedOwnedEntities())
             {
-                var utcNow = _dateTime.GetUtcNow();
+                var utcNow = DateTime.UtcNow;
                 if (entry.State == EntityState.Added)
                 {
                     entry.Entity.CreatedBy = string.Empty;

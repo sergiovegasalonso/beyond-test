@@ -37,7 +37,7 @@ namespace TodoLists.Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TodoItemId = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTimeOffset>(type: "datetime2", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Percent = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                 },
                 constraints: table =>

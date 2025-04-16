@@ -21,11 +21,16 @@ public class AddItemCommandHandler : IRequestHandler<AddItemCommand, int>
             Category = request.Category,
         };
 
-        var todoItemCreated = _context.TodoItems.Add(entity);
+        var todoItemCreated = await _context.TodoItems.AddAsync(entity, cancellationToken);
 
         await _context.SaveChangesAsync(cancellationToken);
 
-        _context.Progressions.Add(new Progression { TodoItemId = todoItemCreated.Entity.Id, Date = DateTime.UtcNow, Percent = 0 });
+        await _context.Progressions.AddAsync(new Progression
+        {
+            TodoItemId = todoItemCreated.Entity.Id,
+            Date = DateTime.UtcNow,
+            Percent = 0
+        }, cancellationToken);
 
         await _context.SaveChangesAsync(cancellationToken);
 

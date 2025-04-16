@@ -4,6 +4,9 @@ Prueba técnica para Beyond
 
 ## Descripción de la solución
 
+IMPORTANTE: esta aplicación está configurada para que funcione con SQL Server, por tanto hay que tenerlo
+instalado en el equipo.
+
 Arquitectura limpia con dos capas de presentación, una web API y una aplicación de consola.
 
 Ambas se se nutren de los casos de uso de la capa de aplicación.
@@ -28,3 +31,5 @@ Ambas se se nutren de los casos de uso de la capa de aplicación.
 ## Tareas que no me ha dado tiempo
 
 1. Hacer el cliente web
+2. Limpieza de algunas partes del código, por ejemplo, los eventos de dominio
+3. 

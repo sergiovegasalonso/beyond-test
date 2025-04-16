@@ -194,7 +194,7 @@ public static class Utils
                 var progressBar = new string('O', filledLength).PadRight(barLength, ' ');
                 var percentFormatted = $"{progression.Percent.ToString("F0")}%";
 
-                var progressionString = $"{progression.Date} - {percentFormatted, -5}" + $"| {progressBar, -100} |";
+                var progressionString = $"{progression.Date, -22} - {percentFormatted, -5}" + $"|{progressBar, -100}|";
 
                 Console.WriteLine(progressionString);
             }

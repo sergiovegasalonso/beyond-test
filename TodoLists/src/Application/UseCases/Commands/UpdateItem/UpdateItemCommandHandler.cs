@@ -18,7 +18,7 @@ public class UpdateItemCommandHandler : IRequestHandler<UpdateItemCommand>
 
         Guard.Against.NotFound(request.Id, entity);
 
-        //entity.Description = request.Description;
+        entity.Description = request.Description;
 
         await _context.SaveChangesAsync(cancellationToken);
     }

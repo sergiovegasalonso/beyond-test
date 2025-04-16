@@ -14,17 +14,17 @@ public class RegisterProgressionCommandHandler : IRequestHandler<RegisterProgres
 
     public async Task Handle(RegisterProgressionCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.TodoItems
+        var todoItem = await _context.TodoItems
             .FindAsync(new object[] { request.TodoItemId }, cancellationToken);
 
-        Guard.Against.NotFound(request.TodoItemId, entity);
+        Guard.Against.NotFound(request.TodoItemId, todoItem);
 
-        /*entity.Progressions.Add(new Progression
+        await _context.Progressions.AddAsync(new Progression
         {
-            Id = Guid.NewGuid(),
-            Date = request.Date,
+            TodoItemId = todoItem.Id,
+            Date = DateTime.UtcNow,
             Percent = request.Percent,
-        });*/
+        }, cancellationToken);
 
         await _context.SaveChangesAsync(cancellationToken);
     }
