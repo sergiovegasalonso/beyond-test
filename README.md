@@ -38,6 +38,7 @@ Ambas se se nutren de los casos de uso de la capa de aplicación.
 1. Limpiar código
 1. limpiar consola
 1. tests
+1. corregir captura global de excepciones
 
 ## tareas pendientes post corrección
 
