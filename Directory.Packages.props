@@ -1,8 +1,6 @@
-<!-- For more info on central package management go to https://devblogs.microsoft.com/nuget/introducing-central-package-management/ -->
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <AspireVersion>9.0.0</AspireVersion>
     <AspnetVersion>9.0.0</AspnetVersion>
     <EfcoreVersion>9.0.0</EfcoreVersion>
     <MicrosoftExtensionsVersion>9.0.0</MicrosoftExtensionsVersion>
