@@ -1,5 +1,4 @@
-﻿using TodoLists.Domain.Constants;
-using TodoLists.Infrastructure.Data;
+﻿using TodoLists.Infrastructure.Data;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -46,16 +45,6 @@ public partial class Testing
     public static string? GetUserId()
     {
         return _userId;
-    }
-
-    public static async Task<string> RunAsDefaultUserAsync()
-    {
-        return await RunAsUserAsync("test@local", "Testing1234!", Array.Empty<string>());
-    }
-
-    public static async Task<string> RunAsAdministratorAsync()
-    {
-        return await RunAsUserAsync("administrator@local", "Administrator1234!", new[] { Roles.Administrator });
     }
 
     public static async Task<string> RunAsUserAsync(string userName, string password, string[] roles)

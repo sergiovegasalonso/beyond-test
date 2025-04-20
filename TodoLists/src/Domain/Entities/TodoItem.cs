@@ -12,7 +12,7 @@ public class TodoItem : BaseAuditableEntity
     public bool IsCompleted
     {
         get => _isCompleted;
-        private set => _isCompleted = value;
+        private set => _isCompleted =  Progressions?.OrderBy(x => x.Date).Last().Percent == 100;
     }
 
     public virtual List<Progression>? Progressions { get; set; }
