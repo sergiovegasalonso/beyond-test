@@ -32,3 +32,16 @@ Ambas se se nutren de los casos de uso de la capa de aplicación.
 1. Hacer el cliente web
 2. Limpieza de algunas partes del código, por ejemplo, los eventos de dominio
 3. Testing (aunque he creado todas las soluciones no me ha dado tiempo a terminarlo)
+
+## tareas pendientes pre corrección
+
+1. Limpiar código
+1. limpiar consola
+1. tests
+1. corregir captura global de excepciones
+
+## tareas pendientes post corrección
+
+1. Añadir subdominio y renombrar nombres de proyectos
+1. añadir eventos de dominio
+1. añadir identity y authorización
