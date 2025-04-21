@@ -23,12 +23,12 @@ Ambas se se nutren de los casos de uso de la capa de aplicación.
    gestionar TodoLists o Progressions y devuelva los resultados por pantalla.
 4. Desarrollada una solución de .NET que cumple con buenas prácticas.
 5. Gestión central de dependencias y versionado de .NET
-6. Github action
-7. Sistema de migraciones, inyección de dependencias y patrón mediator.
-8. Swagger 
+6. Sistema de migraciones, inyección de dependencias y patrón mediator.
+7. Swagger
+8. Añadir unit tests (en el framework que quieras) para validar un happy path, el ejemplo de arriba, y algunos
+test cases de error que no se permitan y tienen que fallar.
 
 ## Tareas que no me ha dado tiempo
 
 1. Hacer el cliente web
-2. Limpieza de algunas partes del código, por ejemplo, los eventos de dominio
-3. Testing (aunque he creado todas las soluciones no me ha dado tiempo a terminarlo)
+2. Patrón repository
